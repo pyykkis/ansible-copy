@@ -1,3 +1,12 @@
 ---
 - name: Copy config.txt to the working directory
-  copy: src=config.txt dest=result/config.txt
+  copy: src={{ item }} dest=result/config.txt
+  with_items:
+    - config.txt
+
+#   Workaround
+# - name: Copy config.txt to the working directory
+#   copy: src={{ item }} dest=result/config.txt
+#   with_first_found:
+#     - ../../../files/config.txt
+#     - config.txt
