@@ -1,0 +1,3 @@
+---
+- name: Copy config.txt to the working directory
+  copy: src=config.txt dest=result/config.txt
